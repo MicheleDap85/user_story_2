@@ -6,6 +6,9 @@
             <li class="nav-item">
                 <a href="{{ route('homepage') }}" class="nav-link px-2 text-light">Home</a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('article.index') }}" class="nav-link px-2 text-light">Annunci</a>
+            </li>
             @auth
                 <li class="nav-item">
                     <a href="{{ route('article.create') }}" class="nav-link px-2 text-light">Inserisci annuncio</a>

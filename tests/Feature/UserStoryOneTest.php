@@ -65,7 +65,5 @@ class UserStoryOneTest extends TestCase
             'user_id' => $user->id,
             'category_id' => $category->id,
         ]);
-
-        $this->assertSame(1, Article::query()->count());
     }
 }

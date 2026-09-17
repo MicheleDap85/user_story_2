@@ -14,18 +14,27 @@
                     <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}"
                        href="{{ route('homepage') }}">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('article.index') ? 'active' : '' }}"
+                       href="{{ route('article.index') }}">Tutti gli annunci</a>
+                </li>
 
                 @isset($categories)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('article.byCategory') ? 'active' : '' }}"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorie
                         </a>
                         <ul class="dropdown-menu">
                             @forelse ($categories as $category)
                                 <li>
-                                    <span class="dropdown-item-text">{{ $category->name }}</span>
+                                    <a class="dropdown-item" href="{{ route('article.byCategory', compact('category')) }}">
+                                        {{ $category->name }}
+                                    </a>
                                 </li>
+                                @if (! $loop->last)
+                                    <li><hr class="dropdown-divider"></li>
+                                @endif
                             @empty
                                 <li><span class="dropdown-item-text">Nessuna categoria</span></li>
                             @endforelse

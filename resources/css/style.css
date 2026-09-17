@@ -64,3 +64,12 @@ body {
     background-color: #111827;
     color: #d1d5db;
 }
+
+.card-w {
+    max-width: 22rem;
+}
+
+.article-carousel-image {
+    height: 360px;
+    object-fit: cover;
+}
